@@ -73,7 +73,7 @@ public class AwesomeqaTest {
              public void loginNegativeTest() throws InterruptedException {
                  driver.findElement(By.xpath("//a[text()='login page']")).click();
                  WebElement email = driver.findElement(By.id("input-email"));
-                 email.sendKeys("johndohgt637hje@example.com");
+                 email.sendKeys("johndohhje@example.com");
                  WebElement password = driver.findElement(By.id("input-password"));
                  password.sendKeys("jdshfjhdjkksh%$%$%123");
 
