@@ -61,7 +61,7 @@ public class AwesomeqaTest {
                  password.sendKeys("jdshfjhdjsh%$%$%123");
 
                  driver.findElement(By.xpath("//input[@class='btn btn-primary']")).click();
-                String expectedTitle="My Account!";
+                String expectedTitle="My Account";
                 String ActualTitle=driver.getTitle();
                 System.out.println(ActualTitle);
                Assert.assertEquals(ActualTitle,expectedTitle);
