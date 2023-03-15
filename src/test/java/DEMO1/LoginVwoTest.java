@@ -7,13 +7,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 public class LoginVwoTest {
     ChromeOptions option;
     WebDriver driver;
+
     @BeforeMethod
     public void openBrowser() {
         option = new ChromeOptions();
@@ -24,7 +29,7 @@ public class LoginVwoTest {
         driver.get("https://app.vwo.com");
         driver.manage().window().maximize();
     }
-    @Test(priority = 2)
+   @Test(priority = 2)
     public void loginNegetiveTest() throws InterruptedException {
         WebElement email = driver.findElement(By.id("login-username"));
         email.sendKeys("b0@esiix.ccom");
@@ -46,4 +51,9 @@ public class LoginVwoTest {
         String loginpageTitle = driver.getTitle();
         Assert.assertEquals(loginpageTitle, "Login - VWO");
         Thread.sleep(2000);
-        driver.quit();}}
+        driver.close();}
+    @AfterTest
+    public void tearDown() {
+
+        driver.quit();
+}}
