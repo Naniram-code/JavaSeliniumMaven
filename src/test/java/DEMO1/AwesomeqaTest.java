@@ -29,7 +29,7 @@ public class AwesomeqaTest {
 
         driver.manage().window().maximize();
     }
-         @Test(enabled = false)
+         @Test(enabled = true)
         public void Registration() throws InterruptedException {
 
             // Find all form-control elements on the page
@@ -37,7 +37,8 @@ public class AwesomeqaTest {
             List<WebElement> formControlElements=driver.findElements(By.className("form-control"));
             formControlElements.get(1).sendKeys("Johnn"); // enter first name
             formControlElements.get(2).sendKeys("Doe"); // enter last name
-            formControlElements.get(3).sendKeys("johndo637e@example.com"); // enter email
+            //formControlElements.get(3).sendKeys("johndo637e@example.com"); // enter email
+             formControlElements.get(3).sendKeys("johndgte@example.com"); // enter email
             formControlElements.get(4).sendKeys("12342567"); //enter  phone number
             formControlElements.get(5).sendKeys("jdshfjhdjsh%$%$%123"); // password
             formControlElements.get(6).sendKeys("jdshfjhdjsh%$%$%123"); // confirm password
@@ -73,7 +74,7 @@ public class AwesomeqaTest {
              public void loginNegativeTest() throws InterruptedException {
                  driver.findElement(By.xpath("//a[text()='login page']")).click();
                  WebElement email = driver.findElement(By.id("input-email"));
-                 email.sendKeys("johndohhje@example.com");
+                 email.sendKeys("johndohhoje@example.com");
                  WebElement password = driver.findElement(By.id("input-password"));
                  password.sendKeys("jdshfjhdjkksh%$%$%123");
 
