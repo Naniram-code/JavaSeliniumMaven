@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="SeleniumMevanTestNgProject">
+        <classes><class name="DEMO1.AwesomeqaTest">
+            <methods><include name="Registration"/>
+                <include name="loginPositiveTest"/>
+                <include name="loginNegativeTest"/>
+                <include name="ValidationOfEmailFormat"/>
+            </methods>
+        </class>
+            <class name="DEMO1.CssSelectoer">
+                <methods><include name="loginNegetiveTest"/>
+                    <include name="loginPositiveTest"/>
+                </methods>
+            </class>
+            <class name="DEMO1.LoginVwoTest">
+                <methods>
+                    <include name="NewRegistration"/>
+                    <include name="loginPositiveTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

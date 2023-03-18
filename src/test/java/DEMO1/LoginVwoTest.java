@@ -19,6 +19,7 @@ public class LoginVwoTest {
     ChromeOptions option;
     WebDriver driver;
 
+
     @BeforeMethod
     public void openBrowser() {
         option = new ChromeOptions();
@@ -29,7 +30,33 @@ public class LoginVwoTest {
         driver.get("https://app.vwo.com");
         driver.manage().window().maximize();
     }
-   @Test(priority = 2)
+    @Test(priority =1,enabled = false)
+    public void NewRegistration() throws InterruptedException {
+       // Actions actions = new Actions(driver);
+
+        driver.findElement(By.linkText("Start a free trial")).click();
+        WebElement emailadd=driver.findElement(By.tagName("input"));
+        //emailadd.sendKeys("Abc4321@gmail.com");//(1st user created)
+        emailadd.sendKeys("Abcd4321@gmail.com");//(2nd user created)
+        driver.findElement(By.tagName("button")).click();
+       WebElement name=driver.findElement(By.xpath("//*[@id='page-v1-fname']"));
+       Actions actions = new Actions(driver);
+        Thread.sleep(5000);
+        actions.sendKeys(name,"Jacksion").build().perform();
+        WebElement Lastname=driver.findElement(By.xpath("//*[@id='page-v1-lname']"));
+        actions.sendKeys(Lastname,"Zazz").build().perform();
+        WebElement PhoneNum=driver.findElement(By.xpath("//*[@id='page-v1-pnumber']"));
+        actions.sendKeys(PhoneNum,"234576946").build().perform();
+        WebElement Psw=driver.findElement(By.xpath("//*[@id='page-v1-pwd']"));
+        actions.sendKeys(Psw,"abcedrg@#$$$65").build().perform();
+        WebElement clickbutton=driver.findElement(By.tagName("button"));
+        actions.moveToElement(clickbutton).doubleClick();
+        Thread.sleep(5000);
+        driver.close();
+
+    }
+
+    @Test(priority = 2)
     public void loginNegetiveTest() throws InterruptedException {
         WebElement email = driver.findElement(By.id("login-username"));
         email.sendKeys("b0@esiix.ccom");
@@ -41,12 +68,15 @@ public class LoginVwoTest {
         Assert.assertEquals(errorMsg.getText(), "Your email, password, IP address or location did not match");
         Thread.sleep(2000);
         driver.close();}
-    @Test(priority = 1)
+
+    @Test(priority = 3)
     public void loginPositiveTest() throws InterruptedException {
         WebElement email = driver.findElement(By.id("login-username"));
-        email.sendKeys("vwouser@gmail.com");
+        //email.sendKeys("vwouser@gmail.com");
+        email.sendKeys("Abc4321@gmail.com");
         WebElement password = driver.findElement(By.name("password"));
-        password.sendKeys("!@#$%^&*()Abc");
+        //password.sendKeys("!@#$%^&*()Abc");
+        password.sendKeys("abcedrg@#$$$6");
         driver.findElement(By.id("js-login-btn")).click();
         String loginpageTitle = driver.getTitle();
         Assert.assertEquals(loginpageTitle, "Login - VWO");
