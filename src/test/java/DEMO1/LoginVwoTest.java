@@ -1,19 +1,22 @@
 package DEMO1;
 
 import org.example.Main;
-import org.openqa.selenium.By;
-import org.openqa.selenium.PageLoadStrategy;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
 import java.util.List;
+import java.util.function.Function;
 
 public class LoginVwoTest {
     ChromeOptions option;
@@ -54,7 +57,7 @@ public class LoginVwoTest {
         System.out.println(ActualTitle);
         String ExpectedTitle="Get Started with Free Trial | VWO";
         Assert.assertEquals(ActualTitle,ExpectedTitle);
-        Thread.sleep(5000);
+        //Thread.sleep(5000);
         driver.close();
 
     }
@@ -67,10 +70,15 @@ public class LoginVwoTest {
         password.sendKeys("ify@1tt23");
 
         driver.findElement(By.id("js-login-btn")).click();
+
+        WebElement element=new WebDriverWait(driver, Duration.ofSeconds(5))//Explicit Wait
+                //.until(ExpectedConditions.presenceOfElementLocated(By.id("js-notification-box-msg")));
+                .until(ExpectedConditions.visibilityOfElementLocated(By.id("js-notification-box-msg")));
         String ActualErrorMsg = driver.findElement(By.id("js-notification-box-msg")).getText();
+
         String ExpectedErroeMsg="Your email, password, IP address or location did not match";
         Assert.assertEquals(ActualErrorMsg,ExpectedErroeMsg);
-        Thread.sleep(2000);
+
         driver.close();}
 
     @Test(priority = 3)
@@ -82,10 +90,21 @@ public class LoginVwoTest {
         //password.sendKeys("!@#$%^&*()Abc");(psw user 1)
         password.sendKeys("abcedrg@#$$$6");
         driver.findElement(By.id("js-login-btn")).click();
+
+        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)//
+                .withTimeout(Duration.ofSeconds(30))
+                .pollingEvery(Duration.ofSeconds(5))
+                .ignoring(NoSuchElementException.class);
+        WebElement element = wait.until(new Function<WebDriver, WebElement>() {//Fluent Wait:
+            @Override
+            public WebElement apply(WebDriver webDriver) {
+                return  driver.findElement(By.id("js-login-btn"));
+            }
+        });
+        driver.findElement(By.id("js-login-btn")).click();
         String ActualloginpageTitle = driver.getTitle();
         String ExpectedloginpageTitle="Login - VWO";
         Assert.assertEquals(ActualloginpageTitle,ExpectedloginpageTitle);
-        Thread.sleep(2000);
         driver.close();}
     @AfterTest
     public void tearDown() {
