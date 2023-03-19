@@ -29,20 +29,10 @@ public class WebTable {
 
     @Test
     public void webTableElements() {
-        WebElement table = driver.findElement(By.id("table_id"));
-        List<WebElement> rows = table.findElements(By.tagName("tr"));
-        for (WebElement row : rows) {
-            List<WebElement> cols = row.findElements(By.tagName("td"));
-            for (WebElement col : cols) {
-                System.out.println(col.getText());
-            }
-        }
-
 
         WebElement table = driver.findElement(By.xpath("//table[contains(@id,\"customers\")]"));//Table path
         List<WebElement> rows = table.findElements(By.xpath("//table[contains(@id,\"customers\")]/tbody/tr"));//Row
         for (WebElement row : rows) {
-            //Column path
             List<WebElement> cols = row.findElements(By.xpath("//table[contains(@id,\"customers\")]/tbody/tr[2]/td")); //Column path
             for (WebElement col : cols) {
                 System.out.println(col.getText());
