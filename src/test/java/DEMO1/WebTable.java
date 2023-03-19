@@ -31,13 +31,12 @@ public class WebTable {
     public void webTableElements() {
 
         WebElement table = driver.findElement(By.xpath("//table[contains(@id,\"customers\")]"));//Table path
-        List<WebElement> rows = table.findElements(By.xpath("//table[contains(@id,\"customers\")]/tbody/tr"));//Row
+        List<WebElement> rows = table.findElements(By.xpath("//table[contains(@id,\"customers\")]/tbody/tr[1]"));//Row
         for (WebElement row : rows) {
-            List<WebElement> cols = row.findElements(By.xpath("//table[contains(@id,\"customers\")]/tbody/tr[2]/td")); //Column path
+            List<WebElement> cols = row.findElements(By.xpath("//table[contains(@id,\"customers\")]/tbody/tr/td")); //Column path
             for (WebElement col : cols) {
                 System.out.println(col.getText());
             }
         }
     }
-
 }
