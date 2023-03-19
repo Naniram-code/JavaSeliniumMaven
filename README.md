@@ -1,5 +1,5 @@
 # JavaSeliniumMaven
-mvn clean test -DsuiteXmlFile=testng.xml
+mvn clean test -DsuiteXmlFile=testng.xml // clean and Test Jinkin gole
 
 WebTable
 how to find webTable all elements in java selenium  
