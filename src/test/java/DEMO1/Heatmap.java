@@ -52,11 +52,11 @@ public class Heatmap {
             String parentWindowHanlde = it.next();//parent
             String childWindowHanlde = it.next();//child
             driver.switchTo().window(childWindowHanlde);//switch child1
-            String ActualText=driver.getTitle();
-            System.out.println("Current page title:"+ActualText);
+            String ActualTitle=driver.getTitle();
+            System.out.println("Current page title:"+ActualTitle);
             System.out.println("Current page URl:"+driver.getCurrentUrl());
             String ExpectedTitle="Job Ready Automation Tester Blueprint with JAVA By Pramod Dutta";
-            Assert.assertEquals(ActualText,ExpectedTitle);
+            Assert.assertEquals(ActualTitle,ExpectedTitle);
 
             WebElement frm1=driver.findElement(By.id("heatmap-iframe"));//iframe
             driver.switchTo().frame(frm1);//switch to iframe
