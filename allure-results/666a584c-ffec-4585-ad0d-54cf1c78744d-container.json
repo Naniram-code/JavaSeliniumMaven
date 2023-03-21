@@ -1,0 +1,1 @@
+{"uuid":"666a584c-ffec-4585-ad0d-54cf1c78744d","name":"DEMO1.Heatmap.openBrowser","children":["de923804-4b2b-4e04-830e-436c9e638420"],"description":"","befores":[{"name":"openBrowser","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1679263297965,"stop":1679263316761}],"afters":[],"start":1679263297964,"stop":1679263316761}
