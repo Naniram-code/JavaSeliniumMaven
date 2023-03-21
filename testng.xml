@@ -1,25 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="SeleniumMevanTestNgProject">
-        <classes><class name="DEMO1.AwesomeqaTest">
-            <methods><include name="Registration"/>
-                <include name="loginPositiveTest"/>
-                <include name="loginNegativeTest"/>
-                <include name="ValidationOfEmailFormat"/>
-            </methods>
-        </class>
-            <class name="DEMO1.CssSelectoer">
-                <methods><include name="loginNegetiveTest"/>
-                    <include name="loginPositiveTest"/>
-                </methods>
-            </class>
-            <class name="DEMO1.LoginVwoTest">
-                <methods>
-                    <include name="NewRegistration"/>
-                    <include name="loginPositiveTest"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-</suite>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite"><test verbose="2" preserve-order="true" name="/Users/nanirambhujel/eclipse-workspace/MevanProject"><classes><class name="DEMO1.AlertPOpupJavapopup"><methods><include name="AlertPOpup"/><include name="droupdown"/></methods></class><class name="DEMO1.AwesomeqaTest"><methods><include name="Registration"/><include name="loginPositiveTest"/><include name="loginNegativeTest"/><include name="ValidationOfEmailFormat"/></methods></class><class name="DEMO1.CssSelectoer"><methods><include name="loginNegetiveTest"/><include name="loginPositiveTest"/></methods></class><class name="DEMO1.HandlingDropDownCheckBoxRadioButton"><methods><include name="droupdown"/><include name="index"/><include name="selectByValuee"/><include name="AllDroupdown"/><include name="checkbox"/><include name="Language_change"/></methods></class><class name="DEMO1.HandlingWindow"><methods><include name="HandleWind"/><include name="windowHandles"/><include name="HandleWindIterator"/></methods></class><class name="DEMO1.HeatMap.Heatmap"><methods><include name="HeatmapClick"/></methods></class><class name="DEMO1.LoginVwoTest"><methods><include name="NewRegistration"/><include name="loginNegetiveTest"/><include name="loginPositiveTest"/></methods></class><class name="DEMO1.MouseAndKeyboardInteractionConcept"><methods><include name="MouseKeywords"/></methods></class><class name="DEMO1.OrangehrmTable"><methods><include name="Table"/></methods></class><class name="DEMO1.WebTable"><methods><include name="webTableElements"/></methods></class></classes></test></suite>

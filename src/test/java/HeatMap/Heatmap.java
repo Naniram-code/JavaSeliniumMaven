@@ -1,4 +1,4 @@
-package DEMO1;
+package HeatMap;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.PageLoadStrategy;
@@ -70,7 +70,7 @@ public class Heatmap {
                     .until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='option-tab vwo_player-option']/span")));
             System.out.println(" HEATMAP Text:"+Heatmap.getText());
             action.moveToElement(Heatmap).doubleClick().build().perform();
-            //Thread.sleep(20000);
+            Thread.sleep(20000);
             driver.close();}
 
      @AfterTest
