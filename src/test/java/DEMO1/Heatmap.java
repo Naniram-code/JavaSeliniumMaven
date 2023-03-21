@@ -1,5 +1,5 @@
 package DEMO1;
-//
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
@@ -45,7 +45,6 @@ public class Heatmap {
            .until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='view--campaign ng-scope']//li[2]")));
             Actions action = new Actions(driver);
             action.moveToElement(element).click().build().perform();
-            Thread.sleep(3000);
             Set<String> handles = driver.getWindowHandles();
             System.out.println("Number of windows opened: "+handles.size());
 
@@ -71,10 +70,8 @@ public class Heatmap {
                     .until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='option-tab vwo_player-option']/span")));
             System.out.println(" HEATMAP Text:"+Heatmap.getText());
             action.moveToElement(Heatmap).doubleClick().build().perform();
-            Thread.sleep(20000);
-            driver.close();
-
-        }
+            //Thread.sleep(20000);
+            driver.close();}
 
      @AfterTest
        public void tearDown() {
