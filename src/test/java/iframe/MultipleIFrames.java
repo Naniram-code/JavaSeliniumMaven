@@ -3,18 +3,25 @@ package iframe;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class MultipleIFrames {
 
 	public static void main(String[] args) {
 		//setup
-		WebDriverManager.chromedriver().setup();
-		WebDriver driver=new ChromeDriver();
+		ChromeOptions option;
+		WebDriver driver;
+		option = new ChromeOptions();
+		option.addArguments("--remote-allow-origins=*");
+		option.setHeadless(false);//user interface browser mode on/of(false/true)
+		option.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+		driver = new ChromeDriver(option);
 		
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		

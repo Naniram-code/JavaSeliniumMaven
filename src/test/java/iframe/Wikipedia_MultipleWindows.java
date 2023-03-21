@@ -5,17 +5,22 @@ import java.util.List;
 import java.util.Set;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Wikipedia_MultipleWindows {
 
 	public static void main(String[] args) {
-		
-		System.setProperty("webdriver.chrome.driver", "C:\\Drivers\\chromedriver_win32\\chromedriver.exe");
-		WebDriver driver=new ChromeDriver();
-		
+		ChromeOptions option;
+		WebDriver driver;
+		option = new ChromeOptions();
+		option.addArguments("--remote-allow-origins=*");
+		option.setHeadless(false);//user interface browser mode on/of(false/true)
+		option.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+		driver = new ChromeDriver(option);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.manage().window().maximize();
 		
