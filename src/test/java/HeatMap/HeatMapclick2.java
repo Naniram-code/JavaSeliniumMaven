@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 public class HeatMapclick2 {
-    //*[@id='vwo-widget-1671204638150']/div/p[2]
+
 
     ChromeOptions option;
     WebDriver driver;
@@ -40,7 +40,7 @@ public class HeatMapclick2 {
                     "mZybiI6ZmFsc2V9&isHttpsOnly=1");
             driver.manage().window().maximize();}
         @Test(priority =1)
-        public void HeatmapClick() throws InterruptedException {
+        public void TextVarify() throws InterruptedException {
             WebElement element=new WebDriverWait(driver, Duration.ofSeconds(5))//Explicit Wait
                     .until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='view--campaign ng-scope']//li[2]")));
             Actions action = new Actions(driver);
@@ -55,16 +55,21 @@ public class HeatMapclick2 {
             WebElement frm1=driver.findElement(By.id("heatmap-iframe"));//iframe
             driver.switchTo().frame(frm1);//switch to iframe
             WebElement CLICKMAP=new WebDriverWait(driver, Duration.ofSeconds(5))//Explicit Wait
-                    .until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='option-tab vwo_player-option']/span")));
+            .until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='option-tab vwo_player-option']/span")));
             action.moveToElement(CLICKMAP).doubleClick().build().perform();
             System.out.println(" CLICKMAP Text:"+CLICKMAP.getText());
 
-            WebElement MAP=new WebDriverWait(driver, Duration.ofSeconds(5))//Explicit Wait
-                    .until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='vwo-widget-1671204638150']/div/p[2]")));
-            action.moveToElement(MAP).doubleClick().build().perform();
-            System.out.println(" MAP Text:"+CLICKMAP.getText());
+            driver.switchTo().parentFrame();// back(switch) to Parentframe
 
+            WebElement TextVerification=new WebDriverWait(driver, Duration.ofSeconds(5))//Explicit Wait
+            .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='vwo-widget-1671204638150']/div/p[2]")));
 
+            boolean BooleanResult=driver.findElement(By.xpath("//*[@id='vwo-widget-1671204638150']/div/p[2]")).isDisplayed();
+            Assert.assertEquals(true,BooleanResult);
+            String ExpectedText="Massive Exclusive Bonuses Expiring on 25th December";
+            String ActualText= TextVerification.getText();
+            System.out.println(ActualText);
+            Assert.assertEquals(ExpectedText,ActualText);
             driver.close();}
 
         @AfterTest
