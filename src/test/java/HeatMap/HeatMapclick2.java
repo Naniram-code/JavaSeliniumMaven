@@ -61,7 +61,7 @@ public class HeatMapclick2 {
 
             driver.switchTo().parentFrame();// back(switch) to Parentframe
 
-            WebElement TextVerification=new WebDriverWait(driver, Duration.ofSeconds(5))//Explicit Wait
+           WebElement TextVerification=new WebDriverWait(driver, Duration.ofSeconds(5))//Explicit Wait
             .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='vwo-widget-1671204638150']/div/p[2]")));
 
             boolean BooleanResult=driver.findElement(By.xpath("//*[@id='vwo-widget-1671204638150']/div/p[2]")).isDisplayed();

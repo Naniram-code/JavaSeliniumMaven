@@ -71,7 +71,6 @@ public class Heatmap {
                     .until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='option-tab vwo_player-option']/span")));
             System.out.println(" HEATMAP Text:"+Heatmap.getText());
             action.moveToElement(Heatmap).doubleClick().build().perform();
-            Thread.sleep(20000);
             driver.close();}
 
         @Test(priority =2)
@@ -88,10 +87,10 @@ public class Heatmap {
         System.out.println(ActualText);
         Assert.assertEquals(ExpectedText,ActualText);
         driver.close();}
-     @AfterTest
-       public void tearDown() {
+        @AfterTest
+           public void tearDown() {
 
-       driver.quit();
+            driver.quit();
     }}
 
 
